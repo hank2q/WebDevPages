@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Grid 2</title>
+        <style>
+            .container {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                /* or grid-template-columns: 1fr 1fr 1fr; */
+                grid-gap: 5px;
+                /* static row height */
+                /* grid-auto-rows: 100px; */
+                /* dinamic height either 100 or the heighes there is */
+                grid-auto-rows: minmax(100px, auto);
+            }
+
+            .container > div {
+                text-align: center;
+                border: 1px solid black;
+            }
+            .container > div:nth-child(odd) {
+                background-color: grey;
+            }
+            .container > div:nth-child(even) {
+                background-color: lightgrey;
+            }
+            .nested {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                padding: 10px;
+            }
+            .nested > * {
+                width: 100%;
+                border: 1px solid green;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto,
+                ullam!
+            </div>
+            <div>
+                Repellat rerum debitis placeat id, animi beatae natus nisi nam!
+            </div>
+            <div>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias optio
+                porro itaque voluptatibus dicta aperiam culpa blanditiis quis,
+                dolorum repellat expedita nemo quos nam minus a eos. Est, aut illo?
+            </div>
+            <div>
+                Consectetur, itaque doloremque. Facilis deserunt quasi deleniti.
+                Deleniti, laboriosam. Id.
+            </div>
+            <div class="nested">
+                <img src="logo.png" alt="logo" />
+                <img src="logo.png" alt="trash" />
+                <div>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. At,
+                    numquam.
+                </div>
+                <div>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores,
+                    accusamus.
+                </div>
+            </div>
+            <div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
+                tempora corrupti pariatur maiores possimus, et sapiente? Ipsum,
+                repudiandae praesentium. Optio delectus doloribus quas sit beatae
+                placeat similique dolores repudiandae iure. Id veritatis temporibus
+                possimus assumenda quibusdam perspiciatis facilis. Nihil eveniet
+                provident, modi magni suscipit iure consequatur molestiae. Voluptas,
+                ipsa aliquid!
+            </div>
+            <div>
+                Tempore quo commodi minus dicta nisi, ratione officia veniam sequi?
+            </div>
+            <div>
+                Commodi, doloremque? Incidunt dolores minima officiis maxime rem nam
+                aliquam.
+            </div>
+            <div>
+                Accusamus sunt rem, magnam numquam aperiam iusto ipsam ad quod.
+            </div>
+        </div>
+    </body>
+</html>

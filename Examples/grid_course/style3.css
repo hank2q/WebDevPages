@@ -1,0 +1,65 @@
+body {
+    background-color: black;
+}
+.wrapper {
+    padding: 10px 10px;
+    margin: 0 auto;
+    /* width: 70%; */
+}
+.wrapper > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    color: white;
+}
+
+.wrapper > div:nth-child(n) {
+    background-color: red;
+}
+.wrapper > div:nth-child(2n) {
+    background-color: green;
+}
+.wrapper > div:nth-child(3n) {
+    background-color: blue;
+}
+.wrapper > div:nth-child(4n) {
+    background-color: orange;
+}
+
+/* .one {
+    background-color: blue;
+}
+.two {
+    background-color: crimson;
+}
+.three {
+    background-color: gold;
+}
+.four {
+    background-color: blue;
+}
+.five {
+    background-color: orange;
+}
+.six {
+    background-color: violet;
+}
+.seven {
+    background-color: maroon;
+}
+.eight {
+    background-color: lavender;
+}
+.nine {
+    background-color: magenta;
+}
+.ten {
+    background-color: rebeccapurple;
+}
+.eleven {
+    background-color: teal;
+}
+.twelve {
+    background-color: steelblue;
+} */

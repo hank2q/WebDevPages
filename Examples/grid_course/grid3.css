@@ -1,0 +1,25 @@
+.wrapper {
+    display: grid;
+    /* autofit to accomodate as many as possible in the given width
+    minmax chose which ever is possible for the width that can be fitted */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    /* grid-template-rows: repeat(2, 100px); */
+    /* create rows according to size given */
+    grid-auto-rows: 100px;
+    grid-gap: 3px;
+    /* fill in gaps in the grid */
+    grid-auto-flow: dense;
+}
+
+.horizontal {
+    grid-column: span 2;
+}
+
+.vertical {
+    grid-row: span 2;
+}
+
+.big {
+    grid-row: span 2;
+    grid-column: span 2;
+}

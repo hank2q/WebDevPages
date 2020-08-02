@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+}
+
+.button {
+    margin: 10px;
+    height: 2em;
+    font-size: 2em;
+    width: 5em;
+    border: 3px solid black;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 10px;
+    user-select: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+#red {
+    background-color: red;
+    color: white;
+}
+
+#green {
+    background-color: green;
+    color: white;
+}
+
+#blue {
+    background-color: blue;
+    color: white;
+}
+.button:hover {
+    cursor: pointer;
+}
