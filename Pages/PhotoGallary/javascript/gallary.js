@@ -18,7 +18,6 @@ function main(event) {
             images[img].alt = "Photo";
         }
     })();
-    // image = images[0];
     image.parentNode.replaceChild(images[0], image);
     image = document.querySelector(".image");
     lable.textContent = names[0];
