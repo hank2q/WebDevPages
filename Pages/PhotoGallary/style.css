@@ -10,15 +10,19 @@ header {
     background-color: gray;
     position: relative;
 }
+.all-small {
+    display: none;
+}
 .logo {
-    height: 9vh;
+    max-width: 9vw;
+    max-height: 9vh;
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
     margin-left: 10px;
     margin-top: 9px;
 }
 span {
-    font-size: 1.5em;
+    font-size: 1.5rem;
     text-align: center;
     height: 2em;
     align-self: center;
@@ -35,6 +39,8 @@ span {
     border: 3px solid black;
     width: 6em;
     right: 20px;
+    background-color: black;
+    color: grey;
 }
 
 .container {
@@ -69,10 +75,42 @@ span {
 }
 
 .image {
-    height: 89vh;
+    max-width: 98%;
+    max-height: 98%;
     margin: 0 auto;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 1024px) {
+    header {
+        height: 9vh;
+    }
+    .all {
+        display: none;
+    }
+    .all-small {
+        display: inline;
+        max-width: 7vw;
+        max-height: 7vh;
+        position: absolute;
+        top: 9px;
+        right: 9px;
+    }
+    .logo {
+        max-width: 7vw;
+        max-height: 7vh;
+    }
+    .container {
+        grid-template-columns: 1fr;
+        height: 91vh;
+    }
+    .images {
+        grid-column: 1;
+    }
+    .nav {
+        display: none;
+    }
 }

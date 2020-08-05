@@ -6,6 +6,7 @@ function main(event) {
         } catch (error) {}
     }
     var current = 0;
+    var container = document.querySelector(".container");
     var image = document.querySelector(".image");
     var lable = document.querySelector(".lable");
     image.src = files[0];
@@ -13,6 +14,7 @@ function main(event) {
     var allBtn = document.querySelector(".all");
     var next = document.querySelector(".next");
     var prev = document.querySelector(".prev");
+    var query = window.matchMedia("(max-width: 1024px)");
 
     function Next() {
         current += 1;
@@ -39,6 +41,17 @@ function main(event) {
     });
     next.addEventListener("click", Next);
     prev.addEventListener("click", Prev);
+    container.addEventListener("click", function (event) {
+        if (query.matches) {
+            let position = event.x;
+            let midPoint = Math.floor(container.clientWidth / 2);
+            if (position < midPoint) {
+                Prev();
+            } else {
+                Next();
+            }
+        }
+    });
 }
 
 document.addEventListener("DOMContentLoaded", main);
