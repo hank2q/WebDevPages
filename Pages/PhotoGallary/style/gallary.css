@@ -103,6 +103,10 @@ span {
         max-width: 7vw;
         max-height: 7vh;
     }
+    .lable {
+        top: 0px;
+        font-size: 1.2em;
+    }
     .container {
         grid-template-columns: 1fr;
         height: 91vh;
