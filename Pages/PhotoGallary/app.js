@@ -1,31 +1,34 @@
 function main(event) {
-    var images = [
-        "images/logo1v2 - small.png",
-        "images/logo1v2.png",
-        "images/logo2 original.png",
-        "images/Untitled.png",
-        "images/mountain.png",
-        "images/screenshot.png",
-        "images/tcempty multi.ico",
-    ];
+    var allElem = document.querySelectorAll("*");
+    for (elem of allElem) {
+        try {
+            elem.setAttribute("draggable", false);
+        } catch (error) {}
+    }
     var current = 0;
     var image = document.querySelector(".image");
+    var lable = document.querySelector(".lable");
+    image.src = files[0];
+    lable.textContent = names[0];
     var allBtn = document.querySelector(".all");
     var next = document.querySelector(".next");
     var prev = document.querySelector(".prev");
+
     function Next() {
         current += 1;
-        if (current == images.length) {
+        if (current == files.length) {
             current = 0;
         }
-        image.src = images[current];
+        image.src = files[current];
+        lable.textContent = names[current];
     }
     function Prev() {
         current -= 1;
         if (current < 0) {
-            current = images.length - 1;
+            current = files.length - 1;
         }
-        image.src = images[current];
+        image.src = files[current];
+        lable.textContent = names[current];
     }
     document.addEventListener("keyup", function (event) {
         if (event.keyCode === 37) {
