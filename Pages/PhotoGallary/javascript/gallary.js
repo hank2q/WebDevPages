@@ -73,7 +73,7 @@ function main(event) {
         return document.fullscreenElement;
     }
     function resetFull() {
-        imageParen.style.backgroundColor = "";
+        fullScreenBtn.src = "assets/expand.svg";
         fullScreenBtn.style.right = "";
         fullScreenBtn.style.height = "5vh";
         imageParen.removeEventListener("click", mouseBrowse);
@@ -81,16 +81,28 @@ function main(event) {
     function toggleFull() {
         if (!isFullScreen()) {
             imageParen.requestFullscreen();
-            imageParen.style.backgroundColor = "white";
+            imageParen.addEventListener("click", mouseBrowse);
+            fullScreenBtn.src = "assets/exwhite.svg";
             fullScreenBtn.style.right = "1%";
             fullScreenBtn.style.height = "3vh";
-            imageParen.addEventListener("click", mouseBrowse);
+            Prev();
+            if (query.matches) {
+                Prev();
+            }
         } else {
             document.exitFullscreen();
             resetFull();
+            if (query.matches) {
+                Prev();
+            }
         }
     }
     fullScreenBtn.addEventListener("click", toggleFull);
+    document.addEventListener("fullscreenchange", function () {
+        if (!isFullScreen()) {
+            resetFull();
+        }
+    });
 }
 
 document.addEventListener("DOMContentLoaded", main);
