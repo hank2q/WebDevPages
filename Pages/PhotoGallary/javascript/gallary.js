@@ -5,7 +5,7 @@ function main(event) {
             elem.setAttribute("draggable", false);
         } catch (error) {}
     }
-    var current = 0;
+
     var container = document.querySelector(".container");
     var image = document.querySelector(".image");
     var imageParen = document.querySelector(".images");
@@ -29,7 +29,10 @@ function main(event) {
     var query = window.matchMedia("(max-width: 1024px)");
 
     function Next() {
+        current = images.indexOf(image);
+        console.log(current);
         current += 1;
+
         if (current == images.length) {
             current = 0;
         }
@@ -38,6 +41,7 @@ function main(event) {
         lable.textContent = names[current];
     }
     function Prev() {
+        current = images.indexOf(image);
         current -= 1;
         if (current < 0) {
             current = images.length - 1;
