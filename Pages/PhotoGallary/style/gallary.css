@@ -49,6 +49,16 @@ span {
     background-color: gray;
     height: 90vh;
 }
+
+.expand {
+    height: 5vh;
+    position: absolute;
+    right: 0;
+    bottom: 1%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+}
 .nav {
     width: 3vw;
     align-self: center;
@@ -72,6 +82,11 @@ span {
 .images {
     grid-column: 2;
     position: relative;
+}
+.images:hover .expand {
+    opacity: 1;
+    cursor: pointer;
+    pointer-events: all;
 }
 
 .image {
@@ -113,6 +128,13 @@ span {
     }
     .images {
         grid-column: 1;
+    }
+    .expand {
+        display: inline;
+        right: 1%;
+        opacity: 1;
+        cursor: pointer;
+        pointer-events: all;
     }
     .nav {
         display: none;
