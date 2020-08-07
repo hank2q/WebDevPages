@@ -1,16 +1,60 @@
 function main(event) {
-    var allElem = document.querySelectorAll("*");
+    const allElem = document.querySelectorAll("*");
     for (elem of allElem) {
         try {
             elem.setAttribute("draggable", false);
         } catch (error) {}
     }
-
-    var container = document.querySelector(".container");
+    const allBtn = document.querySelectorAll(".all-btn");
+    const secondPage = document.getElementById("all");
+    const container = document.querySelector(".container");
+    const next = document.querySelector(".next");
+    const prev = document.querySelector(".prev");
+    const query = window.matchMedia("(max-width: 1024px)");
     var image = document.querySelector(".image");
-    var imageParen = document.querySelector(".images");
-    var lable = document.querySelector(".lable");
-    var fullScreenBtn = document.querySelector(".expand");
+    const imageParen = document.querySelector(".images");
+    const lable = document.querySelector(".lable");
+    const fullScreenBtn = document.querySelector(".expand");
+    allBtn.forEach(function (btn) {
+        btn.addEventListener("click", switchPage);
+    });
+    var allImages = [];
+    function selectImage(img) {
+        secondPage.style.display = "none";
+        container.style.display = "";
+        allBtn[0].style.display = "";
+        allBtn[1].style.display = "";
+        console.log(current);
+        let selected = allImages.indexOf(img);
+        console.log(selected);
+        imageParen.replaceChild(images[selected], imageParen.childNodes[1]);
+        image = images[selected];
+        lable.textContent = names[selected];
+    }
+    function switchPage() {
+        if (secondPage.style.display == "" || secondPage.style.display == "none") {
+            secondPage.style.display = "grid";
+            container.style.display = "none";
+            allBtn[0].style.display = "none";
+            allBtn[1].style.display = "none";
+            lable.textContent = "Gallary";
+            if (secondPage.childElementCount === 0) {
+                images.forEach(function (image) {
+                    let newImage = new Image();
+                    newImage.src = image.src;
+                    newImage.className = "img";
+                    let imgContainer = document.createElement("div");
+                    imgContainer.className = "background";
+                    imgContainer.appendChild(newImage);
+                    imgContainer.addEventListener("click", function () {
+                        selectImage(newImage);
+                    });
+                    secondPage.appendChild(imgContainer);
+                    allImages.push(newImage);
+                });
+            }
+        }
+    }
     var images = [];
     (function () {
         for (img in files) {
@@ -23,14 +67,9 @@ function main(event) {
     imageParen.replaceChild(images[0], image);
     image = images[0];
     lable.textContent = names[0];
-    var allBtn = document.querySelector(".all");
-    var next = document.querySelector(".next");
-    var prev = document.querySelector(".prev");
-    var query = window.matchMedia("(max-width: 1024px)");
 
     function Next() {
         current = images.indexOf(image);
-        console.log(current);
         current += 1;
 
         if (current == images.length) {
