@@ -146,7 +146,6 @@ function main(event) {
             resetFull();
         }
     });
-    switchPage();
 }
 
 document.addEventListener("DOMContentLoaded", main);

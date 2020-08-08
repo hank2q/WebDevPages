@@ -23,33 +23,33 @@ header {
 .logo {
     max-width: 9vw;
     max-height: 9vh;
+    position: fixed;
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
-    margin-left: 10px;
-    margin-top: 9px;
+    margin-left: 0.8vw;
+    margin-top: 0.9vh;
 }
 span {
-    font-size: 1.5rem;
+    font-size: 1.5vw;
     text-align: center;
-    height: 2em;
+    height: 6.5vh;
     align-self: center;
-    position: absolute;
-    padding-top: 6px;
+    position: fixed;
+    padding-top: 1.1vh;
 }
 .lable {
     right: 50%;
-    border-top: 3px solid rgba(0, 0, 0, 0);
     transform: translateX(50%);
+    font-size: large;
 }
 .all {
-    width: 6em;
-    right: 20px;
-    top: 0;
-    margin-top: 15px;
+    width: 8.5vw;
+    top: 2.2vh;
+    right: 0.8vw;
     background-color: #e6e6e6;
     color: black;
-    padding: 10px;
-    border-radius: 5px;
+    /* padding: 10px; */
+    border-radius: 0.5vw;
 }
 
 .container {
@@ -149,9 +149,10 @@ span {
         display: inline;
         max-width: 7vw;
         max-height: 7vh;
-        position: absolute;
-        top: 9px;
-        right: 9px;
+        position: fixed;
+        top: 0.9vh;
+        right: 0;
+        margin-right: 0.8vw;
     }
     .logo {
         max-width: 7vw;
@@ -159,8 +160,7 @@ span {
     }
     .lable {
         top: 0;
-        margin-top: 10px;
-        font-size: 1.2em;
+        margin-top: 0.9vh;
     }
     .container {
         grid-template-columns: 1fr;
