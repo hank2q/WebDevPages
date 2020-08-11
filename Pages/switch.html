@@ -11,8 +11,16 @@
                 padding: 0;
             }
             body {
-                padding: 20px;
                 transition: background-color 0.3s;
+            }
+            .logo {
+                position: absolute;
+                max-width: 10vw;
+                max-height: 10vh;
+                -webkit-transform: scaleX(-1);
+                transform: scaleX(-1);
+                margin-left: 1.5vw;
+                margin-top: 2vh;
             }
             .background {
                 /* aspect ration 2.67 */
@@ -24,6 +32,9 @@
                 border-radius: 100px;
                 cursor: pointer;
                 position: relative;
+                margin-right: 1.5vw;
+                margin-top: 2vh;
+                float: right;
             }
             .button {
                 height: 108%;
@@ -56,6 +67,9 @@
         </style>
     </head>
     <body>
+        <a href="../index.html">
+            <img src="./ParallaxWord/images/logo.png" alt="logo" class="logo" />
+        </a>
         <div class="switch background" onclick="switchButton();">
             <div class="switch button"></div>
         </div>
