@@ -23,7 +23,7 @@ header {
 .logo {
     max-width: 9vw;
     max-height: 9vh;
-    position: fixed;
+    position: absolute;
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
     margin-left: 0.8vw;
@@ -34,7 +34,7 @@ span {
     text-align: center;
     height: 6.5vh;
     align-self: center;
-    position: fixed;
+    position: absolute;
     padding-top: 1.1vh;
 }
 .lable {
