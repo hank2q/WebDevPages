@@ -1,0 +1,192 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Caveat Brush", cursive;
+}
+body {
+    background: linear-gradient(90deg, rgb(184, 182, 175), rgb(230, 214, 193));
+}
+header {
+    position: relative;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.title {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    margin-top: 10px;
+}
+.logo {
+    max-width: 8vw;
+    max-height: 8vh;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+}
+
+.container {
+    width: 100vw;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    height: 80px;
+}
+.fa-plus {
+    font-size: 1.5rem;
+}
+#new {
+    border: none;
+    font-size: 2rem;
+    padding: 0.5rem;
+    background-color: #ffff3f;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    transition: box-shadow 0.2s ease-in-out, font-size 0.1s ease-in-out;
+}
+
+#new:hover {
+    box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.384);
+}
+
+#new:active {
+    box-shadow: none;
+    font-size: 1.9rem;
+}
+
+.notes {
+    margin-top: 10px;
+    width: 85%;
+    margin-left: 4%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.note-wrapper {
+    background-color: #ffff3f;
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.384);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+}
+.note {
+    height: 180px;
+    width: 270px;
+}
+
+.note-title {
+    height: 20%;
+    width: 100%;
+    margin-bottom: 10px;
+    outline: none;
+    border: none;
+    background-color: #ffff3f;
+    font-size: 1.5rem;
+}
+.note-body {
+    height: 80%;
+    width: 100%;
+    outline: none;
+    font-size: 1.2rem;
+    resize: none;
+    outline: none;
+    border: none;
+    background-color: #ffff3f;
+    overflow: auto;
+    border-bottom: 1px solid black;
+}
+
+.note-body::-webkit-scrollbar {
+    width: 5px;
+}
+.note-body::-webkit-scrollbar-thumb {
+    background: none;
+    border-radius: 10px;
+}
+.note:hover .note-body::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.336);
+}
+
+.options {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.options i {
+    margin-left: 5px;
+    cursor: pointer;
+}
+.colors {
+    list-style: none;
+    display: flex;
+    background-color: rgba(54, 54, 54, 0.2);
+    border-radius: 10px;
+    padding-right: 5px;
+    padding-top: 2px;
+    transform-origin: right;
+    transition: all 0.3s ease-in-out;
+}
+
+.invisible {
+    opacity: 0;
+    transform: rotateY(90deg);
+    pointer-events: none;
+}
+
+.modal {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.modal-cont {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    max-height: 70%;
+    background-color: #ffff3f;
+    padding: 25px;
+    border-radius: 10px;
+    opacity: 1;
+    overflow: auto;
+}
+
+.modal-title {
+    font-size: 3rem;
+    border-bottom: 1px solid black;
+}
+
+.modal-body {
+    font-size: 2rem;
+    margin-top: 4%;
+    white-space: pre-wrap;
+}
+
+.fa-times {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.modal-cont::-webkit-scrollbar {
+    width: 10px;
+}
+.modal-cont::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.336);
+    border-radius: 20px;
+}
