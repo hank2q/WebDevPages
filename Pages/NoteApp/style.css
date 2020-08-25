@@ -4,27 +4,31 @@
     box-sizing: border-box;
     font-family: "Caveat Brush", cursive;
 }
+.mobile {
+    visibility: hidden;
+}
 body {
-    background: linear-gradient(90deg, rgb(184, 182, 175), rgb(230, 214, 193));
+    background-color: rgb(41, 41, 41);
 }
 header {
     position: relative;
     width: 100%;
     height: 10%;
     display: flex;
-    justify-content: center;
     align-items: center;
 }
+
+header * {
+    margin: 5px;
+}
 .title {
+    color: #ffff3f;
     font-family: Georgia, "Times New Roman", Times, serif;
     margin-top: 10px;
 }
 .logo {
     max-width: 8vw;
     max-height: 8vh;
-    position: absolute;
-    top: 3px;
-    left: 3px;
 }
 
 .container {
@@ -42,7 +46,8 @@ header {
 .fa-plus {
     font-size: 1.5rem;
 }
-#new {
+button.new {
+    justify-self: start;
     border: none;
     font-size: 2rem;
     padding: 0.5rem;
@@ -53,11 +58,11 @@ header {
     transition: box-shadow 0.2s ease-in-out, font-size 0.1s ease-in-out;
 }
 
-#new:hover {
-    box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.384);
+button.new:hover {
+    box-shadow: 0px 0px 10px 0px rgb(0, 0, 0);
 }
 
-#new:active {
+button.new:active {
     box-shadow: none;
     font-size: 1.9rem;
 }
@@ -71,7 +76,7 @@ header {
 }
 .note-wrapper {
     background-color: #ffff3f;
-    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.384);
+    box-shadow: 3px 3px 10px rgb(0, 0, 0);
     border-radius: 5px;
     padding: 10px;
     margin: 10px;
@@ -189,4 +194,78 @@ header {
 .modal-cont::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, 0.336);
     border-radius: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+    body {
+        background: rgb(37, 37, 37);
+    }
+    .mobile {
+        visibility: visible;
+    }
+    .title {
+        display: none;
+    }
+    .logo {
+        max-width: 10vw;
+        max-height: 10vh;
+        top: 10px;
+        left: 10px;
+    }
+    button.new {
+        display: none;
+    }
+    .fa-plus.mobile {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 2rem;
+        color: #ffffff;
+        text-shadow: 0 0 3px black;
+    }
+    .container {
+        flex-direction: unset;
+        margin-top: 10px;
+    }
+    .note-wrapper {
+        margin-top: 10px;
+        margin-right: 0;
+        margin-left: 0;
+        width: 100%;
+        padding-bottom: 5px;
+    }
+    .notes {
+        width: 100%;
+        justify-content: center;
+        margin: 0;
+    }
+    .note {
+        width: 100%;
+        height: auto;
+    }
+    .note-body {
+        border-bottom: none;
+    }
+    .options {
+        position: relative;
+    }
+    .options i {
+        font-size: 1.2rem;
+    }
+    .colors {
+        border-radius: 0;
+    }
+
+    .fa-chevron-down,
+    .fa-chevron-up {
+        position: absolute;
+        right: 95%;
+    }
+    .modal-cont {
+        min-width: 100vw;
+        min-height: 100vh;
+    }
+    .fa-times {
+        font-size: 2rem;
+    }
 }

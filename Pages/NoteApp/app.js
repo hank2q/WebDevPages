@@ -1,16 +1,20 @@
 // elements
 const container = document.querySelector(".notes");
-const newButton = document.querySelector("#new");
+const newButton = document.querySelectorAll(".new");
 const modal = document.querySelector(".modal");
 const modalCont = document.querySelector(".modal-cont");
 const modalTitle = document.querySelector(".modal-title");
 const modalBody = document.querySelector(".modal-body");
 const closeModal = document.querySelector(".fa-times");
 let noteIndex = 0;
+const query = window.matchMedia("(max-width: 768px)");
 
 // event listeners
 document.addEventListener("DOMContentLoaded", retreiveNotes);
-newButton.addEventListener("click", makeNote);
+newButton.forEach((b) => {
+    b.addEventListener("click", makeNote);
+});
+
 closeModal.addEventListener("click", () => {
     modal.style.visibility = "hidden";
     enableScroll();
@@ -22,6 +26,12 @@ function makeNote() {
     const note = document.createElement("div");
     note.className = "note-wrapper";
     note.id = "i-" + noteIndex;
+    let shape;
+    if (query.matches) {
+        shape = "square";
+    } else {
+        shape = "circle";
+    }
     const noteHtml = `<div class="note">
                             <input type="text" class="note-title" placeholder="New Note"></input>
                             <textarea class="note-body" data-simplebar></textarea>
@@ -31,12 +41,13 @@ function makeNote() {
                             <i class="fas fa-external-link-alt"></i>
                             <i class="fas fa-palette"></i>
                             <ul class="colors invisible">
-                                <li><i class="fas fa-circle red" style="color: #f03463"></i></li>
-                                <li><i class="fas fa-circle green" style="color: #00b988"></i></li>
-                                <li><i class="fas fa-circle blue" style="color: #3e92cc"></i></li>
-                                <li><i class="fas fa-circle yellow" style="color: #ffff3f"></i></li>
-                                <li><i class="fas fa-circle white" style="color: #fffaff"></i></li>
+                                <li><i class="fas fa-${shape} red" style="color: #f03463"></i></li>
+                                <li><i class="fas fa-${shape} green" style="color: #00b988"></i></li>
+                                <li><i class="fas fa-${shape} blue" style="color: #3e92cc"></i></li>
+                                <li><i class="fas fa-${shape} yellow" style="color: #ffff3f"></i></li>
+                                <li><i class="fas fa-${shape} white" style="color: #fffaff"></i></li>
                             </ul>
+                            <i class="mobile fas fa-chevron-down"></i>
                         </div>`;
     note.innerHTML = noteHtml;
     container.appendChild(note);
@@ -66,14 +77,43 @@ function makeNote() {
             changeNoteColor(note, color);
             colorsList.classList.toggle("invisible");
             updateColor(note, color);
-            note.Color = color;
         }
     });
     // change saving
-    let text = note.querySelector("textarea");
     note.addEventListener("input", () => {
         saveNote(note);
     });
+    // autosize text for mobile
+    if (query.matches) {
+        let text = note.querySelector("textarea");
+        let chevron = note.querySelector(".fa-chevron-down");
+        text.addEventListener("focus", () => {
+            autosize(text);
+            chevron.classList.toggle("fa-chevron-down");
+            chevron.classList.toggle("fa-chevron-up");
+        });
+        text.addEventListener("click", () => {
+            autosize(text);
+        });
+
+        text.addEventListener("blur", () => {
+            autosize.destroy(text);
+            chevron.classList.toggle("fa-chevron-down");
+            chevron.classList.toggle("fa-chevron-up");
+        });
+        chevron.addEventListener("click", () => {
+            if (chevron.classList[2] === "fa-chevron-down") {
+                autosize(text);
+                chevron.classList.toggle("fa-chevron-down");
+                chevron.classList.toggle("fa-chevron-up");
+            } else {
+                autosize.destroy(text);
+                chevron.classList.toggle("fa-chevron-down");
+                chevron.classList.toggle("fa-chevron-up");
+            }
+        });
+    }
+
     noteIndex++;
     return note;
 }
@@ -111,6 +151,7 @@ function changeNoteColor(note, color) {
     note.style.backgroundColor = color;
     note.querySelector(".note-title").style.backgroundColor = color;
     note.querySelector(".note-body").style.backgroundColor = color;
+    note.Color = color;
 }
 
 function updateColor(note, color) {
