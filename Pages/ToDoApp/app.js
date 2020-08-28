@@ -75,7 +75,9 @@ function addTodo(text, done) {
         checkBtn.childNodes[1].classList.toggle("far");
     }
     //adding functionality
-
+    todoElem.addEventListener("input", () => {
+        editStorage(todoElem);
+    });
     delBtn.addEventListener("click", () => {
         todoElem.remove();
         todos = JSON.parse(localStorage.getItem("todos"));
