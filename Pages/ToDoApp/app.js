@@ -41,6 +41,7 @@ inputText.addEventListener("keyup", (event) => {
     if (event.keyCode == 13 && inputText.value && !isEmpty(inputText.value)) {
         addTodo(inputText.value, false);
         inputText.value = "";
+        inputText.blur();
     }
 });
 addBtn.addEventListener("click", () => {
