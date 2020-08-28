@@ -142,28 +142,36 @@ li button {
         height: 7vh;
         padding: 7px;
     }
+    h1 {
+        display: none;
+    }
+    #date {
+        position: absolute;
+        right: 0;
+        font-size: 1.15rem;
+    }
     .add {
         width: 100vw;
         display: flex;
         align-items: center;
         position: relative;
-        margin-top: 50px;
+        margin-top: 30px;
     }
     .ent-lable {
         display: block;
         position: absolute;
-        top: -60px;
+        top: -40px;
         left: 10px;
-        font-size: 2rem;
+        font-size: 1.5rem;
         color: white;
     }
     .entry {
         align-self: center;
-        font-size: 2rem;
+        font-size: 1.3rem;
         flex: 1;
     }
     .add-btn {
-        font-size: 3rem;
+        font-size: 2rem;
         align-self: center;
     }
 
@@ -172,23 +180,22 @@ li button {
     }
 
     ul * {
-        font-size: 2rem;
+        font-size: 1.3rem;
     }
 
     li {
         height: auto;
         padding: 0;
-        padding-left: 10px;
+        padding-left: 7px;
     }
     #check,
     #remove {
-        height: 100%;
         align-self: flex-start;
     }
     li p {
         white-space: normal;
     }
     li i {
-        font-size: 2.5rem;
+        font-size: 1.5rem;
     }
 }
