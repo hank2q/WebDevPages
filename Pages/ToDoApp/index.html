@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+            integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+            crossorigin="anonymous"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Alata&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <title>To-Do App</title>
+    </head>
+    <body>
+        <header>
+            <a href="../../index.html">
+                <img src="logo.png" alt="logo" class="logo" />
+            </a>
+            <h1 class="title">To-Do App</h1>
+            <h2 id="date">Date</h2>
+        </header>
+        <main>
+            <div class="container">
+                <div class="add">
+                    <label class="mobile ent-lable" for="entry">Add new item</label>
+                    <input id="entry" name="entry" class="entry" type="text" />
+                    <button class="add-btn">
+                        <i class="fas fa-plus-circle"></i>
+                    </button>
+                </div>
+                <div class="todolist">
+                    <ul class="list">
+                        <!-- <li class="done">
+                            <p contenteditable="">Something to do</p>
+                            <button id="check">
+                                <i class="fas fa-check-circle"></i>
+                            </button>
+
+                            <button id="remove">
+                                <i class="fas fa-times-circle"></i>
+                            </button>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+        </main>
+        <script src="app.js"></script>
+    </body>
+</html>
