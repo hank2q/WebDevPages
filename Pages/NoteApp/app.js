@@ -87,29 +87,31 @@ function makeNote() {
     if (query.matches) {
         let text = note.querySelector("textarea");
         let chevron = note.querySelector(".fa-chevron-down");
+
         text.addEventListener("focus", () => {
             autosize(text);
-            chevron.classList.toggle("fa-chevron-down");
-            chevron.classList.toggle("fa-chevron-up");
-        });
-        text.addEventListener("click", () => {
-            autosize(text);
+            if (text.value.split("\n").length > 2) {
+                chevron.classList.remove("fa-chevron-down");
+                chevron.classList.add("fa-chevron-up");
+            }
         });
 
         text.addEventListener("blur", () => {
             autosize.destroy(text);
-            chevron.classList.toggle("fa-chevron-down");
-            chevron.classList.toggle("fa-chevron-up");
+            chevron.classList.add("fa-chevron-down");
+            chevron.classList.remove("fa-chevron-up");
         });
         chevron.addEventListener("click", () => {
-            if (chevron.classList[2] === "fa-chevron-down") {
-                autosize(text);
-                chevron.classList.toggle("fa-chevron-down");
-                chevron.classList.toggle("fa-chevron-up");
-            } else {
-                autosize.destroy(text);
-                chevron.classList.toggle("fa-chevron-down");
-                chevron.classList.toggle("fa-chevron-up");
+            if (text.value.split("\n").length > 2) {
+                if (chevron.classList[2] === "fa-chevron-down") {
+                    autosize(text);
+                    chevron.classList.toggle("fa-chevron-down");
+                    chevron.classList.toggle("fa-chevron-up");
+                } else {
+                    autosize.destroy(text);
+                    chevron.classList.toggle("fa-chevron-down");
+                    chevron.classList.toggle("fa-chevron-up");
+                }
             }
         });
     }
