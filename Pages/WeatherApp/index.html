@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+            integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+            crossorigin="anonymous"
+        />
+        <!-- <link rel="stylesheet" href="./autocomplete/teleport-autocomplete.css" /> -->
+        <link rel="stylesheet" href="style.css" />
+        <title>Weather App</title>
+    </head>
+    <body>
+        <header>
+            <a href="../../index.html">
+                <img src="images/logo.png" alt="logo" class="logo" />
+            </a>
+            <h1 class="title">Weather</h1>
+        </header>
+        <div class="container">
+            <div class="search">
+                <input
+                    id="city"
+                    type="text"
+                    placeholder="City Search"
+                    autocomplete="off"
+                />
+                <button id="submit"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="city-info">
+                <h2 class="name">New York</h2>
+                <h3 class="date-time">Date-Time</h3>
+                <h4 class="description">Clear sky</h4>
+            </div>
+            <div class="weather-info">
+                <img src="icons/01d.png" alt="" class="weather-icon" />
+                <h1 class="temp">25</h1>
+                <p class="unit">
+                    <span class="cel">°C </span><span>|</span
+                    ><span class="feh"> °F</span>
+                </p>
+            </div>
+            <div class="extra">
+                <h2 class="low"><i class="fas fa-temperature-low"></i> Low: 32</h2>
+                <h2 class="high">
+                    <i class="fas fa-temperature-high"></i> High: 40
+                </h2>
+                <h2 class="humid"><i class="fas fa-tint"></i> Humidity: 32%</h2>
+                <h2 class="wind"><i class="fas fa-wind"></i> Wind: 32 mph</h2>
+            </div>
+            <!-- <div class="days">
+                <div class="day-card"></div>
+            </div> -->
+        </div>
+        <script src="./autocomplete/teleport-autocomplete.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
