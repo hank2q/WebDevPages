@@ -9,7 +9,10 @@
             integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
             crossorigin="anonymous"
         />
-        <!-- <link rel="stylesheet" href="./autocomplete/teleport-autocomplete.css" /> -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap"
+            rel="stylesheet"
+        />
         <link rel="stylesheet" href="style.css" />
         <title>Weather App</title>
     </head>
@@ -22,34 +25,40 @@
         </header>
         <div class="container">
             <div class="search">
-                <input
-                    id="city"
-                    type="text"
-                    placeholder="City Search"
-                    autocomplete="off"
-                />
+                <input id="city" type="text" autocomplete="off" />
                 <button id="submit"><i class="fas fa-search"></i></button>
             </div>
-            <div class="city-info">
-                <h2 class="name">New York</h2>
-                <h3 class="date-time">Date-Time</h3>
-                <h4 class="description">Clear sky</h4>
+            <div class="city-info invisible">
+                <h2 class="name"></h2>
+                <h3 class="date-time"></h3>
+                <h4 class="description"></h4>
             </div>
-            <div class="weather-info">
-                <img src="icons/01d.png" alt="" class="weather-icon" />
-                <h1 class="temp">25</h1>
+            <div class="weather-info invisible">
+                <img src="" alt="icon" class="weather-icon" id="icon" />
+                <p class="temp"></p>
                 <p class="unit">
-                    <span class="cel">°C </span><span>|</span
-                    ><span class="feh"> °F</span>
+                    <span class="cel disabled">°C </span>
+                    <span>|</span>
+                    <span class="feh"> °F</span>
                 </p>
             </div>
-            <div class="extra">
-                <h2 class="low"><i class="fas fa-temperature-low"></i> Low: 32</h2>
-                <h2 class="high">
-                    <i class="fas fa-temperature-high"></i> High: 40
-                </h2>
-                <h2 class="humid"><i class="fas fa-tint"></i> Humidity: 32%</h2>
-                <h2 class="wind"><i class="fas fa-wind"></i> Wind: 32 mph</h2>
+            <div class="extra invisible">
+                <p class="low">
+                    <i class="fas fa-temperature-low"></i> Low:
+                    <span class="low-n"></span>
+                </p>
+                <p class="high">
+                    <i class="fas fa-temperature-high"></i> High:
+                    <span class="high-n"></span>
+                </p>
+                <p class="humid">
+                    <i class="fas fa-tint"></i> Humidity:
+                    <span class="humid-n"></span><span>%</span>
+                </p>
+                <p class="wind">
+                    <i class="fas fa-wind"></i> Wind: <span class="wind-n"></span>
+                    <span id="k" class="speed">km/h</span>
+                </p>
             </div>
             <!-- <div class="days">
                 <div class="day-card"></div>
