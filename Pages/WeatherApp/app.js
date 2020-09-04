@@ -17,6 +17,7 @@ const high = document.querySelector(".high-n");
 const humid = document.querySelector(".humid-n");
 const wind = document.querySelector(".wind-n");
 const speed = document.querySelector(".speed");
+const loader = document.querySelector("#sun");
 let autoCity;
 // events
 document.addEventListener("DOMContentLoaded", init);
@@ -60,6 +61,7 @@ function byLocation(position) {
     let lon = position.coords.longitude;
     let lat = position.coords.latitude;
     let url = `&lat=${lat}&lon=${lon}`;
+    loader.style.opacity = "1";
     getWeather(url).then((data) => {
         setTimeout(updateWeather, 200, data);
     });
@@ -69,6 +71,7 @@ function bySearch() {
     if (autoCity) {
         let url = `&lat=${autoCity.latitude}&lon=${autoCity.longitude}`;
         container.style.opacity = "0";
+        loader.style.opacity = "1";
         getWeather(url).then((data) => {
             setTimeout(updateWeather, 200, data);
         });
@@ -89,6 +92,7 @@ function updateWeather(data) {
     humid.textContent = data.main.humidity;
     icon.src = `./icons/${data.weather[0].icon}.png`;
     container.style.opacity = "1";
+    loader.style.opacity = "0";
 }
 
 function currentDate(dt) {

@@ -182,3 +182,24 @@ header * {
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
 }
+#sun {
+    opacity: 0;
+    pointer-events: none;
+    width: 10%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#ray {
+    transform-origin: 50%;
+    animation: rotate 9s infinite cubic-bezier(0, 0, 0, 0);
+}
+@keyframes rotate {
+    0% {
+        transform: rotateZ(0);
+    }
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
