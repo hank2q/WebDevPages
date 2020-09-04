@@ -1,6 +1,8 @@
 // elements
 const api =
-    "https://api.openweathermap.org/data/2.5/weather?appid=470983ff2969012deb535e1c1e146f74&units=metric&";
+    "https://api.openweathermap.org/data/2.5/weather?appid=470983ff2969012deb535e1c1e146f74&units=";
+let unit = "metric";
+const container = document.querySelector(".animator");
 const cityInput = document.querySelector("#city");
 const submit = document.querySelector("#submit");
 const cityName = document.querySelector(".name");
@@ -48,7 +50,7 @@ function init() {
 
 // get weather data from api
 async function getWeather(url) {
-    let response = await fetch(api + url);
+    let response = await fetch(api + unit + url);
     let result = await response.json();
     return result;
 }
@@ -57,29 +59,27 @@ async function getWeather(url) {
 function byLocation(position) {
     let lon = position.coords.longitude;
     let lat = position.coords.latitude;
-    let url = `lat=${lat}&lon=${lon}`;
+    let url = `&lat=${lat}&lon=${lon}`;
     getWeather(url).then((data) => {
-        updateWeather(data);
+        setTimeout(updateWeather, 200, data);
     });
 }
 
 function bySearch() {
     if (autoCity) {
-        let url = `lat=${autoCity.latitude}&lon=${autoCity.longitude}`;
+        let url = `&lat=${autoCity.latitude}&lon=${autoCity.longitude}`;
+        container.style.opacity = "0";
         getWeather(url).then((data) => {
-            updateWeather(data);
+            setTimeout(updateWeather, 200, data);
         });
     }
 }
 
 function updateWeather(data) {
-    document.querySelectorAll(".invisible").forEach((elem) => {
-        elem.classList.remove("invisible");
-    });
     let city = data.name;
     let country = data.sys.country;
     let description = capitalize(data.weather[0].description);
-    cityName.textContent = city + ", " + country;
+    cityName.textContent = city + ", " + codes[country];
     status.textContent = description;
     tempreture.textContent = data.main.temp.toFixed(1);
     cityTime.textContent = currentDate(data.dt + data.timezone);
@@ -88,6 +88,7 @@ function updateWeather(data) {
     wind.textContent = (data.wind.speed * 3.6).toFixed(1);
     humid.textContent = data.main.humidity;
     icon.src = `./icons/${data.weather[0].icon}.png`;
+    container.style.opacity = "1";
 }
 
 function currentDate(dt) {
@@ -159,6 +160,7 @@ function toFeh() {
     cels.classList.remove("disabled");
     cels.style.fontWeight = "";
     cels.style.color = "grey";
+    unit = "imperial";
 }
 
 function toCels() {
@@ -170,6 +172,7 @@ function toCels() {
     feh.classList.remove("disabled");
     feh.style.fontWeight = "";
     feh.style.color = "grey";
+    unit = "metric";
 }
 
 function convertSpeed() {

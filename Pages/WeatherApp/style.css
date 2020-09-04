@@ -5,16 +5,16 @@
     font-family: "Noto Sans", sans-serif;
 }
 body {
-    background: linear-gradient(to left, rgb(226, 218, 218), rgb(194, 181, 181));
+    background: linear-gradient(to left, #213c47, #1d3842);
+    color: #f1e7e7;
 }
 header {
-    background: linear-gradient(to left, #2fac1f, #2b881e);
+    background: #2a9d8f;
     position: relative;
     width: 100vw;
     height: 10vh;
     display: flex;
     align-items: center;
-    color: #1d1d1d;
 }
 
 .title {
@@ -22,6 +22,7 @@ header {
     left: 50%;
     transform: translateX(-50%);
     font-size: 2.5rem;
+    transition: opacity 0.5s ease-in-out;
 }
 header * {
     padding: 5px;
@@ -33,30 +34,28 @@ header * {
     padding: 0;
 }
 
-.container {
-    display: grid;
-    width: 90%;
-    margin: 20px auto;
-    grid-template-columns: 1fr, 1fr;
-    grid-template-rows: repeat(4, auto);
-    grid-template-areas:
-        "s s"
-        "c t"
-        "e e"
-        "d d";
-}
-
 .search {
     grid-area: s;
     align-self: flex-start;
-    margin-top: 20px;
-    margin-bottom: 50px;
+    margin: 50px auto;
     justify-self: center;
     width: 40%;
     display: flex;
     justify-content: space-between;
     position: relative;
 }
+.container {
+    display: grid;
+    width: 90%;
+    margin: 0 auto;
+    grid-template-columns: 1fr, 1fr;
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas:
+        "c t"
+        "e e"
+        "d d";
+}
+
 .tp-autocomplete {
     flex: 1;
     position: relative;
@@ -67,12 +66,12 @@ header * {
     padding: 11px;
     text-align: center;
     border: none;
-    background-color: #2fac1f;
+    background-color: #e76f51;
     border-radius: 100px;
     outline: none;
 }
 #city::placeholder {
-    color: rgb(0, 0, 0);
+    color: #f1e7e7;
 }
 #submit {
     border: none;
@@ -92,7 +91,7 @@ header * {
     margin: 0;
     left: 50%;
     transform: translateX(-50%);
-    background: #237c17;
+    background: #e76f51;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.35);
     font-size: 1.1rem;
     width: 93%;
@@ -110,15 +109,16 @@ header * {
     user-select: none;
     white-space: nowrap;
     text-overflow: ellipsis;
+    color: #252525;
 }
 .tp-ac__item:hover,
 .tp-ac__item.is-active {
-    background-color: white;
+    background-color: #e9c46a;
 }
 .tp-ac__item.no-results,
 .tp-ac__item.no-results:hover {
     cursor: default;
-    background-color: #fff;
+    background-color: #e9c46a;
 }
 .tp-ac__item span {
     color: black;
@@ -178,6 +178,7 @@ header * {
     cursor: pointer;
 }
 
-.invisible {
-    visibility: hidden;
+.animator {
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
 }

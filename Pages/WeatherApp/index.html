@@ -23,26 +23,26 @@
             </a>
             <h1 class="title">Weather</h1>
         </header>
-        <div class="container">
-            <div class="search">
-                <input id="city" type="text" autocomplete="off" />
-                <button id="submit"><i class="fas fa-search"></i></button>
-            </div>
-            <div class="city-info invisible">
+        <div class="search">
+            <input id="city" type="text" autocomplete="off" />
+            <button id="submit"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="container animator">
+            <div class="city-info">
                 <h2 class="name"></h2>
                 <h3 class="date-time"></h3>
                 <h4 class="description"></h4>
             </div>
-            <div class="weather-info invisible">
+            <div class="weather-info">
                 <img src="" alt="icon" class="weather-icon" id="icon" />
                 <p class="temp"></p>
                 <p class="unit">
                     <span class="cel disabled">°C </span>
-                    <span>|</span>
+                    <span style="color: grey">|</span>
                     <span class="feh"> °F</span>
                 </p>
             </div>
-            <div class="extra invisible">
+            <div class="extra">
                 <p class="low">
                     <i class="fas fa-temperature-low"></i> Low:
                     <span class="low-n"></span>
@@ -65,6 +65,7 @@
             </div> -->
         </div>
         <script src="./autocomplete/teleport-autocomplete.js"></script>
+        <script src="countrycodes.js"></script>
         <script src="app.js"></script>
     </body>
 </html>

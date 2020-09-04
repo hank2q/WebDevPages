@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            img {
+                visibility: hidden;
+                opacity: 0;
+                transition: all 0.5s ease-in-out;
+            }
+        </style>
+    </head>
+    <body>
+        <button id="btn">animate</button>
+        <img id="img" src="./logo.png" alt="" />
+        <script>
+            let appeared = false;
+            let img = document.querySelector("#img");
+            function appear() {
+                if (!appeared) {
+                    img.style.visibility = "visible";
+                    img.style.opacity = "1";
+                    appeared = true;
+                } else {
+                    img.style.visibility = "invisible";
+                    img.style.opacity = "0";
+                    appeared = false;
+                }
+            }
+            let btn = document.querySelector("#btn");
+            btn.addEventListener("click", appear);
+        </script>
+    </body>
+</html>
