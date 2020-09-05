@@ -18,6 +18,7 @@ const humid = document.querySelector(".humid-n");
 const wind = document.querySelector(".wind-n");
 const speed = document.querySelector(".speed");
 const loader = document.querySelector("#sun");
+const days = document.querySelector(".days");
 let autoCity;
 // events
 document.addEventListener("DOMContentLoaded", init);
@@ -44,8 +45,6 @@ function init() {
     // displaying current location weather if user allows it
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(byLocation, () => {});
-    } else {
-        console.log("no geolocation");
     }
 }
 
@@ -56,6 +55,15 @@ async function getWeather(url) {
     return result;
 }
 
+async function getForcast(url) {
+    let forcastApi =
+        "https://api.openweathermap.org/data/2.5/forecast?appid=470983ff2969012deb535e1c1e146f74&units=" +
+        unit +
+        url;
+    let response = await fetch(forcastApi);
+    let result = await response.json();
+    return result;
+}
 // give user location to api
 function byLocation(position) {
     let lon = position.coords.longitude;
@@ -64,6 +72,9 @@ function byLocation(position) {
     loader.style.opacity = "1";
     getWeather(url).then((data) => {
         setTimeout(updateWeather, 200, data);
+    });
+    getForcast(url).then((data) => {
+        updateForcast(data);
     });
 }
 
@@ -75,6 +86,32 @@ function bySearch() {
         getWeather(url).then((data) => {
             setTimeout(updateWeather, 200, data);
         });
+        getForcast(url).then((data) => {
+            updateForcast(data);
+        });
+    }
+}
+function updateForcast(data) {
+    days.innerHTML = "";
+    let timings = [3, 11, 19, 27, 35];
+    for (index of timings) {
+        let dt = data.list[index].dt + data.city.timezone;
+        dt = dt - 240 * 3 * 60;
+        let d = new Date(dt * 1000);
+        const daysName = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        let day = daysName[d.getDay()];
+        let temp = Math.round(data.list[index].main.temp);
+        let icon = data.list[index].weather[0].icon;
+        let desc = data.list[index].weather[0].main;
+        days.insertAdjacentHTML(
+            "beforeend",
+            `<div class="day-card">
+                    <p>${day}</p>
+                    <p>${desc}</p>
+                    <img src="icons/${icon}.png" alt="weather" />
+                    <p class="day-temp">${temp}</p>
+                </div>`
+        );
     }
 }
 
@@ -94,12 +131,9 @@ function updateWeather(data) {
     container.style.opacity = "1";
     loader.style.opacity = "0";
 }
-
 function currentDate(dt) {
     dt = dt - 240 * 60;
     var date = new Date(dt * 1000);
-    console.log(date.getTimezoneOffset());
-    console.log(date);
     const days = [
         "Sunday",
         "Monday",
@@ -117,7 +151,6 @@ function currentDate(dt) {
     let af = "AM";
     if (hour[0] > 12) {
         hour[0] -= 12;
-        console.log(hour[0]);
         af = "PM";
         if (hour[0] < 10) {
             hour[0] = "0" + hour[0];
@@ -164,6 +197,10 @@ function toFeh() {
     cels.classList.remove("disabled");
     cels.style.fontWeight = "";
     cels.style.color = "grey";
+    days.querySelectorAll(".day-temp").forEach((elem) => {
+        let newTemp = Math.round(formula(elem.textContent));
+        elem.textContent = newTemp;
+    });
     unit = "imperial";
 }
 
@@ -176,6 +213,10 @@ function toCels() {
     feh.classList.remove("disabled");
     feh.style.fontWeight = "";
     feh.style.color = "grey";
+    days.querySelectorAll(".day-temp").forEach((elem) => {
+        let newTemp = Math.round(formula(elem.textContent));
+        elem.textContent = newTemp;
+    });
     unit = "metric";
 }
 

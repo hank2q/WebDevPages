@@ -203,3 +203,35 @@ header * {
         transform: rotateZ(360deg);
     }
 }
+
+.days {
+    grid-area: d;
+    margin-top: 50px;
+    justify-self: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.day-card {
+    /* background-color: royalblue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border-right: 0; */
+    flex-direction: column;
+    padding: 5px;
+    line-height: 1.5rem;
+    border-left: 1px solid #2a9d8f;
+}
+
+.day-card p {
+    font-size: 0.9rem;
+}
+
+.day-card img {
+    width: 60%;
+}
+
+.day-card:first-child {
+    border: none;
+}
