@@ -11,10 +11,11 @@ body {
 header {
     background: #2a9d8f;
     position: relative;
-    width: 100vw;
+    width: 100%;
     height: 10vh;
     display: flex;
     align-items: center;
+    padding: 30px 10px;
 }
 
 .title {
@@ -22,12 +23,14 @@ header {
     left: 50%;
     transform: translateX(-50%);
     font-size: 2.5rem;
-    transition: opacity 0.5s ease-in-out;
 }
 header * {
     padding: 5px;
 }
-
+header a {
+    margin: 0;
+    padding: 0;
+}
 .logo {
     max-width: 8vw;
     max-height: 8vh;
@@ -64,6 +67,7 @@ header * {
     width: 100%;
     font-size: 1.1rem;
     padding: 11px;
+    padding-right: 40px;
     text-align: center;
     border: none;
     background-color: #e76f51;
@@ -213,11 +217,9 @@ header * {
 }
 
 .day-card {
-    /* background-color: royalblue; */
     display: flex;
     justify-content: center;
     align-items: center;
-    /* border-right: 0; */
     flex-direction: column;
     padding: 5px;
     line-height: 1.5rem;
@@ -234,4 +236,82 @@ header * {
 
 .day-card:first-child {
     border: none;
+}
+
+@media only screen and (max-width: 768px) {
+    header {
+        height: 10%;
+        margin: 0px auto;
+        padding: 10px;
+    }
+    .title {
+        font-size: 2rem;
+    }
+    .logo {
+        max-width: 10vw;
+    }
+    header a {
+        margin: 0;
+        padding: 0;
+    }
+    .search {
+        width: 90%;
+    }
+    .container {
+        width: 100%;
+        grid-template-areas:
+            "c"
+            "t"
+            "e"
+            "d";
+    }
+    .city-info {
+        padding: 0;
+        text-align: center;
+    }
+    .temp {
+        font-size: 5rem;
+    }
+    .weather-info {
+        text-align: center;
+        margin: 10px 0;
+    }
+    .weather-icon {
+        width: 25%;
+    }
+    .unit {
+        margin-left: 10px;
+    }
+    .unit span {
+        font-size: 1.5rem;
+    }
+    .extra {
+        flex-direction: column;
+        text-align: center;
+        margin-top: 10px;
+        padding-top: 0;
+    }
+    .extra p {
+        margin: 5px 0;
+    }
+    #sun {
+        width: 30%;
+        top: 60%;
+    }
+    .days {
+        margin-top: 20px;
+        flex-direction: column;
+        width: 100%;
+    }
+    .day-card {
+        flex-direction: row;
+        justify-content: space-around;
+        border: none;
+    }
+    .day-card p {
+        font-size: 1.5rem;
+    }
+    .day-card img {
+        width: 2rem;
+    }
 }
