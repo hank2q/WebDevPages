@@ -16,7 +16,7 @@ body {
     background-color: #ebecf0;
 }
 
-div {
+.parent {
     background-color: #ebecf0;
     padding: 20px;
     box-shadow: -5px -5px 20px #fff, 5px 5px 20px #babecc;
@@ -70,10 +70,6 @@ p {
 
 .options {
     margin-bottom: 30px;
-}
-
-.disabled {
-    color: #cdcdce;
 }
 
 button,
@@ -137,4 +133,78 @@ input[type="number"]::-webkit-inner-spin-button {
 .result {
     font-size: 1.2rem;
     font-family: sans-serif;
+}
+
+.wrapper {
+    margin: 8px 15px;
+}
+
+.state {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 1e-5;
+    pointer-events: none;
+}
+
+.label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.text {
+    margin-left: 10px;
+}
+
+.indicator {
+    position: relative;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    box-shadow: -8px -4px 8px 0px #ffffff, 8px 4px 12px 0px #d1d9e6;
+    overflow: hidden;
+}
+
+.indicator::before,
+.indicator::after {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    height: 80%;
+    width: 80%;
+    border-radius: 50%;
+}
+
+.indicator::before {
+    box-shadow: -4px -2px 4px 0px #d1d9ff00, 4px 2px 8px 0px #fff,
+        inset 1px 1px 1px 0px #999, inset -1px -1px 60px #62d5ff;
+}
+
+.indicator::after {
+    background-color: #ecf0f3;
+    box-shadow: -4px -2px 4px 0px #fff, 4px 2px 8px 0px #d1d9e6;
+    transform: scale3d(1, 1, 1);
+    transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
+}
+
+.state:checked ~ .label .indicator::after {
+    transform: scale3d(0.975, 0.975, 1) translate3d(0, 10%, 0);
+    opacity: 0;
+}
+
+.disabled {
+    color: #cdcdce;
+}
+.disabled .indicator::before {
+    opacity: 0.2;
+    box-shadow: -4px -2px 4px 0px #d1d9ff00, 4px 2px 8px 0px #fff,
+        inset 1px 1px 1px 0px #999, inset -1px -1px 60px #d1cdce;
+}
+.radio {
+    display: flex;
+}
+.pos {
+    margin: 8px 15px;
 }

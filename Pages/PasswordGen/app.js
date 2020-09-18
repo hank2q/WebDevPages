@@ -10,7 +10,6 @@ const position = document.querySelectorAll("input[name=position]");
 const copy = document.querySelector("#copy");
 const plus = document.querySelector(".plus");
 const minus = document.querySelector(".minus");
-print(position);
 const characters = {
     caps: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
     small: "abcdefghijklmnopqrstuvwxyz",
@@ -36,6 +35,7 @@ const subs = {
 // event listeners
 word.addEventListener("input", function () {
     let disabled = document.querySelectorAll(".target");
+    let r = document.querySelectorAll(".indicator::before");
     if (word.value) {
         subsCheck.disabled = false;
         disabled.forEach((item) => {

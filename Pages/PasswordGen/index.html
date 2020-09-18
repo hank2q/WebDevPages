@@ -17,12 +17,12 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <div class="password">
+        <div class="password parent">
             <button id="gen">Get Password</button>
             <input type="text" class="result" />
             <button id="copy">Copy Password</button>
         </div>
-        <div class="container">
+        <div class="container parent">
             <label for="length">Password length:</label><br />
             <button class="minus"><i class="fas fa-minus"></i></button>
             <input type="number" id="length" min="4" max="100" value="14" />
@@ -56,7 +56,7 @@
                     <label for="word">Include Spacific Word</label><br />
                     <input type="text" name="word" id="word" />
                 </li>
-                <li class="target disabled">
+                <!-- <li class="target disabled">
                     <span>Position: </span>
                     <label for="start"
                         ><input
@@ -89,6 +89,52 @@
                         />
                         End</label
                     >
+                </li> -->
+                <li class="target disabled radio">
+                    <span class="pos">Position: </span>
+                    <div class="wrapper">
+                        <input
+                            class="state"
+                            type="radio"
+                            name="position"
+                            id="a"
+                            disabled
+                            checked
+                            value="-1"
+                        />
+                        <label class="label" for="a">
+                            <div class="indicator"></div>
+                            <span class="text">Start</span>
+                        </label>
+                    </div>
+                    <div class="wrapper">
+                        <input
+                            class="state"
+                            type="radio"
+                            name="position"
+                            id="b"
+                            disabled
+                            value="0"
+                        />
+                        <label class="label" for="b">
+                            <div class="indicator"></div>
+                            <span class="text">Middle</span>
+                        </label>
+                    </div>
+                    <div class="wrapper">
+                        <input
+                            class="state"
+                            type="radio"
+                            name="position"
+                            id="c"
+                            disabled
+                            value="1"
+                        />
+                        <label class="label" for="c">
+                            <div class="indicator"></div>
+                            <span class="text">End</span>
+                        </label>
+                    </div>
                 </li>
                 <li class="target disabled">
                     <label for="subs"
