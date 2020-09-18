@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: -0.2px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    font-size: 1.2rem;
+    background-color: #ebecf0;
+}
+
+div {
+    background-color: #ebecf0;
+    padding: 20px;
+    box-shadow: -5px -5px 20px #fff, 5px 5px 20px #babecc;
+    border-radius: 15px;
+    text-align: center;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+.password {
+    margin-bottom: 30px;
+    padding: 15px;
+}
+
+.password input {
+    width: 500px;
+    margin: 0 10px;
+}
+
+ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+input[name="position"] {
+    margin-left: 7px;
+}
+#length,
+#word {
+    text-align: center;
+    margin: 5px 0;
+    position: relative;
+}
+#length {
+    margin-bottom: 20px;
+}
+input[type="checkbox"] {
+    margin-left: 7px;
+}
+
+label,
+p {
+    text-shadow: 1px 1px 1px #fff;
+}
+
+.options {
+    margin-bottom: 30px;
+}
+
+.disabled {
+    color: #cdcdce;
+}
+
+button,
+input {
+    text-align: center;
+    border: 0;
+    outline: 0;
+    font-size: 16px;
+    border-radius: 320px;
+    padding: 10px;
+    background-color: #ebecf0;
+    text-shadow: 1px 1px 0 #fff;
+}
+
+.result,
+#length,
+#word {
+    box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #fff;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    appearance: none;
+    -webkit-appearance: none;
+}
+.result:focus,
+#length:focus,
+#word:focus {
+    box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
+}
+
+button {
+    color: #61677c;
+    font-weight: bold;
+    box-shadow: -2px -2px 5px #fff, 2px 2px 5px #babecc;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+button:active {
+    box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    position: absolute;
+}
+.plus,
+.minus {
+    border-radius: 50%;
+    padding-left: 13px;
+    padding-right: 13px;
+}
+
+#length {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
+
+.result {
+    font-size: 1.2rem;
+    font-family: sans-serif;
+}

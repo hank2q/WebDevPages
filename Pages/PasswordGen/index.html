@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Password Generator</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+            integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+            crossorigin="anonymous"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="password">
+            <button id="gen">Get Password</button>
+            <input type="text" class="result" />
+            <button id="copy">Copy Password</button>
+        </div>
+        <div class="container">
+            <label for="length">Password length:</label><br />
+            <button class="minus"><i class="fas fa-minus"></i></button>
+            <input type="number" id="length" min="4" max="100" value="14" />
+            <button class="plus"><i class="fas fa-plus"></i></button>
+            <p>Include in password:</p>
+            <ul class="options">
+                <li>
+                    <label for="caps">Capital letters (ABCDE...)</label>
+                    <input type="checkbox" id="caps" />
+                </li>
+                <li>
+                    <label for="small">Small letters (abcde...)</label>
+                    <input type="checkbox" id="small" checked />
+                </li>
+                <li>
+                    <label for="digits">Digits (01234..9)</label>
+                    <input type="checkbox" id="digits" checked />
+                </li>
+                <li>
+                    <label for="symbols">Symbols (!"#$%&...)</label>
+                    <input type="checkbox" id="symbols" />
+                </li>
+                <li>
+                    <label for="brackets">Brackets (<{[()]}>)</label>
+                    <input type="checkbox" id="brackets" />
+                </li>
+            </ul>
+            <p>Extra options:</p>
+            <ul class="extra-op">
+                <li>
+                    <label for="word">Include Spacific Word</label><br />
+                    <input type="text" name="word" id="word" />
+                </li>
+                <li class="target disabled">
+                    <span>Position: </span>
+                    <label for="start"
+                        ><input
+                            name="position"
+                            disabled
+                            type="radio"
+                            id="start"
+                            checked
+                            value="-1"
+                        />
+                        Start</label
+                    >
+                    <label for="middle"
+                        ><input
+                            name="position"
+                            disabled
+                            type="radio"
+                            id="middle"
+                            value="0"
+                        />
+                        Middle</label
+                    >
+                    <label for="end"
+                        ><input
+                            name="position"
+                            disabled
+                            type="radio"
+                            id="end"
+                            value="1"
+                        />
+                        End</label
+                    >
+                </li>
+                <li class="target disabled">
+                    <label for="subs"
+                        >Add random letter replacement (a:@ e:3 s:$...)</label
+                    >
+                    <input type="checkbox" id="subs" disabled />
+                </li>
+            </ul>
+        </div>
+        <script src="app.js"></script>
+    </body>
+</html>
