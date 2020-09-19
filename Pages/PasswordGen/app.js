@@ -63,7 +63,12 @@ copy.addEventListener("click", () => {
     result.select();
     result.setSelectionRange(0, 99999);
     document.execCommand("copy");
-    // document.getSelection().removeAllRanges(); // remove selection
+    let notification = document.querySelector(".notification");
+    notification.classList.add("show");
+    setTimeout(() => {
+        notification.classList.remove("show");
+        document.getSelection().removeAllRanges(); // remove selection
+    }, 650);
 });
 plus.addEventListener("click", () => {
     passwordLen.value++;
