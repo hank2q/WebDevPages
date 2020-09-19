@@ -29,25 +29,50 @@
             <button class="plus"><i class="fas fa-plus"></i></button>
             <p>Include in password:</p>
             <ul class="options">
-                <li>
+                <li class="option-item">
                     <label for="caps">Capital letters (ABCDE...)</label>
-                    <input type="checkbox" id="caps" />
+                    <div class="checkbox_cont">
+                        <input type="checkbox" id="caps" class="box" />
+                        <label for="caps">
+                            <i class="fa fa-check"></i>
+                        </label>
+                    </div>
                 </li>
-                <li>
+                <li class="option-item">
                     <label for="small">Small letters (abcde...)</label>
-                    <input type="checkbox" id="small" checked />
+                    <div class="checkbox_cont">
+                        <input type="checkbox" id="small" checked class="box" />
+                        <label for="small">
+                            <i class="fa fa-check"></i>
+                        </label>
+                    </div>
                 </li>
-                <li>
+                <li class="option-item">
                     <label for="digits">Digits (01234..9)</label>
-                    <input type="checkbox" id="digits" checked />
+                    <div class="checkbox_cont">
+                        <input type="checkbox" id="digits" checked class="box" />
+                        <label for="digits">
+                            <i class="fa fa-check"></i>
+                        </label>
+                    </div>
                 </li>
-                <li>
+                <li class="option-item">
                     <label for="symbols">Symbols (!"#$%&...)</label>
-                    <input type="checkbox" id="symbols" />
+                    <div class="checkbox_cont">
+                        <input type="checkbox" id="symbols" class="box" />
+                        <label for="symbols">
+                            <i class="fa fa-check"></i>
+                        </label>
+                    </div>
                 </li>
-                <li>
+                <li class="option-item">
                     <label for="brackets">Brackets (<{[()]}>)</label>
-                    <input type="checkbox" id="brackets" />
+                    <div class="checkbox_cont">
+                        <input type="checkbox" id="brackets" class="box" />
+                        <label for="brackets">
+                            <i class="fa fa-check"></i>
+                        </label>
+                    </div>
                 </li>
             </ul>
             <p>Extra options:</p>
@@ -102,11 +127,16 @@
                         </label>
                     </div>
                 </li>
-                <li class="target disabled">
+                <li class="target disabled extra-item">
                     <label for="subs"
                         >Add random letter replacement (a:@ e:3 s:$...)</label
                     >
-                    <input type="checkbox" id="subs" disabled />
+                    <div class="checkbox_cont">
+                        <input type="checkbox" id="subs" disabled class="box" />
+                        <label for="subs">
+                            <i class="fa fa-check"></i>
+                        </label>
+                    </div>
                 </li>
             </ul>
         </div>
