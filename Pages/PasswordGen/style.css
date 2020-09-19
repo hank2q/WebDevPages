@@ -38,7 +38,7 @@ p {
 }
 
 .password input {
-    width: 500px;
+    min-width: 33vw;
     margin-left: 15px;
     margin-right: 10px;
 }
