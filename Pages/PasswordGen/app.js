@@ -33,6 +33,7 @@ const subs = {
 };
 
 // event listeners
+
 word.addEventListener("input", function () {
     let disabled = document.querySelectorAll(".target");
     let r = document.querySelectorAll(".indicator::before");
