@@ -24,9 +24,7 @@ function main(event) {
         container.style.display = "";
         allBtn[0].style.display = "";
         allBtn[1].style.display = "";
-        console.log(current);
         let selected = allImages.indexOf(img);
-        console.log(selected);
         imageParen.replaceChild(images[selected], imageParen.childNodes[1]);
         image = images[selected];
         lable.textContent = names[selected];
@@ -38,6 +36,8 @@ function main(event) {
             allBtn[0].style.display = "none";
             allBtn[1].style.display = "none";
             lable.textContent = "Gallary";
+            let id = secondPage.classList[0];
+            history.pushState({ id }, "All images", "./all");
             if (secondPage.childElementCount === 0) {
                 images.forEach(function (image) {
                     let newImage = new Image();
@@ -48,6 +48,7 @@ function main(event) {
                     imgContainer.appendChild(newImage);
                     imgContainer.addEventListener("click", function () {
                         selectImage(newImage);
+                        history.replaceState(null, "Home", "./");
                     });
                     secondPage.appendChild(imgContainer);
                     allImages.push(newImage);
@@ -55,6 +56,12 @@ function main(event) {
             }
         }
     }
+    window.addEventListener("popstate", (e) => {
+        secondPage.style.display = "none";
+        container.style.display = "";
+        allBtn[0].style.display = "";
+        allBtn[1].style.display = "";
+    });
     var images = [];
     (function () {
         for (img in files) {
