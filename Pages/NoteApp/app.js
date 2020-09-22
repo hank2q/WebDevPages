@@ -14,12 +14,28 @@ document.addEventListener("DOMContentLoaded", retreiveNotes);
 newButton.forEach((b) => {
     b.addEventListener("click", makeNote);
 });
-
-closeModal.addEventListener("click", () => {
-    modal.style.visibility = "hidden";
-    enableScroll();
+modal.addEventListener("click", (e) => {
+    if (!query.matches) {
+        if (e.target == modal || e.target == closeModal) {
+            modal.style.visibility = "hidden";
+            enableScroll();
+            history.replaceState(null, "Home", "./");
+            console.log(history.state);
+        }
+    } else {
+        if (e.target == closeModal) {
+            modal.style.visibility = "hidden";
+            enableScroll();
+            history.replaceState(null, "Home", "./");
+        }
+    }
 });
 
+window.addEventListener("popstate", (e) => {
+    modal.style.visibility = "hidden";
+    enableScroll();
+    history.replaceState(null, "Home", "./");
+});
 // functions
 function makeNote() {
     // making the note element
@@ -64,6 +80,9 @@ function makeNote() {
     let expand = note.querySelector(".fa-external-link-alt");
     expand.addEventListener("click", () => {
         modalShow(note);
+        let id = note.id;
+        let title = note.querySelector(".note-title").value;
+        history.pushState({ id }, "", title);
     });
     // changing color
     let colorsList = note.querySelector(".colors");
