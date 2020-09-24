@@ -10,6 +10,8 @@ const position = document.querySelectorAll("input[name=position]");
 const copy = document.querySelector("#copy");
 const plus = document.querySelector(".plus");
 const minus = document.querySelector(".minus");
+const notification = document.querySelector(".notification");
+
 const characters = {
     caps: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
     small: "abcdefghijklmnopqrstuvwxyz",
@@ -61,15 +63,12 @@ button.addEventListener("click", () => {
 });
 
 copy.addEventListener("click", () => {
-    result.select();
-    result.setSelectionRange(0, 99999);
-    document.execCommand("copy");
-    let notification = document.querySelector(".notification");
-    notification.classList.add("show");
-    setTimeout(() => {
-        notification.classList.remove("show");
-        document.getSelection().removeAllRanges(); // remove selection
-    }, 650);
+    if (result.value) {
+        result.select();
+        result.setSelectionRange(0, 99999);
+        document.execCommand("copy");
+        showNotification("Password Copied", null, 700);
+    }
 });
 plus.addEventListener("click", () => {
     passwordLen.value++;
@@ -82,9 +81,15 @@ function generatePass(passLen) {
     let pool = "";
     for (node of checks) {
         if (node.checked) {
+            print(node);
             pool += characters[node.id];
         }
     }
+    if (!pool) {
+        showNotification("One field must be selected", "error", 2000);
+        return "";
+    }
+    print(pool);
     let password = "";
     for (i = 0; i < passLen; i++) {
         let index = randint(0, pool.length - 1);
@@ -134,4 +139,20 @@ function randint(min, max) {
     let step = max - min + 1;
     let rand = Math.floor(Math.random() * step) + min;
     return rand;
+}
+
+function showNotification(msg, type, time) {
+    notification.lastElementChild.textContent = msg;
+
+    if (type === "error") {
+        notification.classList.add("error");
+    }
+    notification.classList.add("show");
+    setTimeout(() => {
+        notification.classList.remove("show");
+        document.getSelection().removeAllRanges(); // remove selection
+        if (type === "error") {
+            notification.classList.remove("error");
+        }
+    }, time);
 }
